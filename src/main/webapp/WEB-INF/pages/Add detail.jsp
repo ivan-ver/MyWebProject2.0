@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Detail</title>
+    <title>Add detail</title>
 </head>
 <body>
 <h1>Add Detail to DataBase</h1>
@@ -28,5 +28,10 @@
     <input title="name" type="text" name="name">
     <input type="submit" value="OK">
 </form>
+
+<a href="/">
+    <p><button>HOME</button>
+</a>
+
 </body>
 </html>

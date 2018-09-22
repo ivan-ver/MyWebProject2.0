@@ -1,9 +1,7 @@
-
-
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Detail</title>
-
+    <title>Type list</title>
     <style type="text/css">
         table{
             margin-left: 20px;
@@ -20,28 +18,28 @@
     </style>
 </head>
 <body>
-<h1>Search Result</h1>
+<h1>Type list</h1>
 <table>
     <tr>
-        <th>ID</th>
         <th>Type</th>
         <th>Count</th>
         <th>Necessity</th>
-        <th>Name</th>
     </tr>
-    <#list details as det>
-    <tr>
-        <td>${det.id}</td>
-        <td>${det.type}</td>
-        <td>${det.count}</td>
-        <td>${det.necessity}</td>
-        <td>${det.name}</td>
-    </tr>
-</#list>
-
+    <#list types as t>
+        <tr>
+            <td><a href="/type/${t.typeName}">${t.typeName}</a></td>
+            <td>${t.count}</td>
+            <td>${t.necessity}</td>
+        </tr>
+    </#list>
+        <tr>
+            <th>It is possible to assemble</th>
+            <th>${compNumbers}</th>
+            <th>computer(s)</th>
+        </tr>
 </table>
-<a href="/details">
-    <p><button>BACK</button>
+<a href="/">
+    <p><button>HOME</button>
 </a>
 </body>
 </html>

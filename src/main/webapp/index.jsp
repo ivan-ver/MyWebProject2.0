@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
     <body>
-        <a href="/details">
+        <a href="/details/1">
             <p><button>Detail List</button>
         </a>
 
@@ -13,6 +13,9 @@
             <p><button>Type List</button>
         </a>
 
+        <a href="/addDetail">
+            <p><button>Add Detail</button>
+        </a>
 
 
     </body>

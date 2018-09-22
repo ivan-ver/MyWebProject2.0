@@ -2,7 +2,7 @@
 <html lang="java">
 <head>
     <meta charset="UTF-8">
-    <title>Detail List</title>
+    <title>Detail list</title>
 
     <style type="text/css">
         table{
@@ -17,24 +17,22 @@
             padding: 5px;
             text-align: center;
         }
+        .page{
+            display: inline-block;
+        }
     </style>
 
 
 </head>
 <body>
-    <h1>Add Detail</h1>
-    <a href="/addDetail">
-        <p><button>Add Detail</button>
-    </a>
-    <h1>Search details</h1>
+
+    <h1>Search detail</h1>
     <form name="search" action="/search" method="get">
         <input title="detailSearch" type="text" name="detailSearch">
         <input type="submit" value="SEARCH">
     </form>
-    <a href="/">
-        <p><button>BACK</button>
-    </a>
-    <h1>Details list</h1>
+
+    <h1>Detail list</h1>
     <table>
         <tr>
             <th>ID</th>
@@ -55,9 +53,15 @@
             </tr>
         </#list>
     </table>
+    <div>
+        <#list pageNumb as p>
+            <div class="page"><td><a href="/details/${p}"><p><button>${p}</button></a></td></div>
+        </#list>
+    </div>
 
 
-
-
+        <a href="/">
+            <p><button>HOME</button>
+        </a>
 </body>
 </html>

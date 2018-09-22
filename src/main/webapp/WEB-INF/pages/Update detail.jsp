@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Detail</title>
+    <title>Update detail</title>
 </head>
 <body>
-<h1>Add Detail to DataBase</h1>
+<h1>Update detail</h1>
 <form name="detail" action="/updateDetail" method="post">
     <p>ID</p>
     <input title="id" type="text" name="id" value="${detail.id}" readonly>
@@ -30,5 +30,13 @@
     <input title="name" type="text" name="name" value="${detail.name}">
     <input type="submit" value="OK">
 </form>
+
+<a href="/details/1">
+    <p><button>BACK</button>
+</a>
+
+<a href="/">
+    <p><button>HOME</button>
+</a>
 </body>
 </html>

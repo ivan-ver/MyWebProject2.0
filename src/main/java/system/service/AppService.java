@@ -19,4 +19,7 @@ public interface AppService {
     void updateDetail (Detail detail);
 
     Object findAllByName(String request);
+
+    List<Detail> list(Integer offset, Integer maxResults);
+    Long count();
 }

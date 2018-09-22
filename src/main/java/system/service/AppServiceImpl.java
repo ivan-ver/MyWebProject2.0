@@ -6,6 +6,7 @@ import system.dao.DAO;
 import system.entity.Detail;
 import system.entity.Type;
 
+import java.awt.print.Pageable;
 import java.util.*;
 
 @Service
@@ -32,6 +33,8 @@ public class AppServiceImpl implements AppService {
     public List<Detail> findAll() {
         return dao.findAll();
     }
+
+
 
     @Override
     public List<Type> getDetailType() {
@@ -93,5 +96,15 @@ public class AppServiceImpl implements AppService {
                 res.add(d);
         }
         return res;
+    }
+
+    @Override
+    public List<Detail> list(Integer offset, Integer maxResults){
+        return dao.getAll(offset, maxResults);
+    }
+
+    @Override
+    public Long count() {
+        return dao.count();
     }
 }
