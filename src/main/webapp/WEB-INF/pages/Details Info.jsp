@@ -29,11 +29,13 @@
                 <th>Count</th>
 
             </tr>
-            <#list details as d>
+            <#list details as det>
                 <tr>
-                    <td>${d.id}</td>
-                    <td>${d.name}</td>
-                    <td>${d.count}</td>
+                    <td>${det.id}</td>
+                    <td>${det.name}</td>
+                    <td>${det.count}</td>
+                    <td><a href="/delete/${det.id}"><p><button>Delete</button></a></td>
+                    <td><a href="/update/${det.id}"><p><button>Update</button></a></td>
 
                 </tr>
             </#list>
