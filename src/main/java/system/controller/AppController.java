@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/")
 public class AppController {
 
+
+    Integer OFFSET;
     @Autowired
     public AppService appService;
 
@@ -52,19 +54,7 @@ public class AppController {
     @PostMapping("/addDetail")
     public String addDetail(@ModelAttribute("detail") Detail detail){
         appService.addDetail(detail);
-        return "redirect:/details";
-    }
-
-    @PostMapping("/updateDetail")
-    public String updateDetail(@ModelAttribute("detail") Detail detail){
-        appService.updateDetail(detail);
-        return "redirect:/details";
-    }
-
-    @GetMapping("/update/{id}")
-    public String update(@PathVariable("id") Integer id,Model model){
-        model.addAttribute("detail",appService.getById(id));
-        return "Update detail";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
@@ -73,24 +63,36 @@ public class AppController {
         return "Search result";
     }
 
+    @PostMapping("/updateDetail")
+    public String updateDetail(@ModelAttribute("detail") Detail detail){
+        appService.updateDetail(detail);
+        return "redirect:/";
+    }
+
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable("id") Integer id,Model model){
+        model.addAttribute("detail",appService.getById(id));
+        return "Update detail";
+    }
+
+
     @GetMapping("/delete/{id}")
     public String deleteDetail(@PathVariable("id") Integer id){
         appService.deleteDetail(id);
-        return "redirect:/details";
+        return "redirect:/";
     }
 
 
     @GetMapping("/details/{offset}")
-    public String list(@PathVariable("offset") Integer offset,Model model){
-        if (offset == 1) {
-            model.addAttribute("details", appService.list(0, 10));
-        } else {
-            model.addAttribute("details", appService.list((offset-1)*10, 10));
-        }
+    public String getAll(@PathVariable("offset") Integer offset,Model model){
         List<Long> pages = new ArrayList<>();
+        OFFSET = offset;
         for (int i = 1; i < appService.count()/10+2; i++) {
             pages.add(Long.valueOf(i));
         }
+
+        model.addAttribute("details", appService.list((offset-1)*10, 10));
+
         model.addAttribute("pageNumb",pages);
         return "Detail list";
     }
